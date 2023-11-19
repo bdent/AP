@@ -56,12 +56,8 @@
         </div>
         <h1 class="title focus-in-expand">Aftermarket Plug</h1>
         <p class="description m-top slide-in-bottom">
-            <a href="https://www.depop.com/aftermarketplug/">Depop</a>
-            +
-            <a href="https://www.instagram.com/aftermarketplug/">Instagram</a>
-            +
-            <a href="https://www.twitter.com/aftermarketplug/">Twitter</a>
-            <!--                        <a href="mailto:contact@aftermarketplug.com?Subject=Website Enquiry">Email</a>-->
+<!--        <p class="description m-top slide-in-bottom">-->
+            <a id="redirect" href="#">REDIRECTING TO META TRADER - <span id="symbol"></span></a>
         </p>
     </div>
 </div>
@@ -83,6 +79,15 @@
         var queryString = window.location.search;
         var urlParams = new URLSearchParams(queryString);
         var symbol = urlParams.get('symbol');
+
+        navigator.clipboard.writeText('teststst');
+
+        if (symbol) {
+            $('#symbol').text(String(symbol))
+        } else {
+            $('#redirect').text('REDIRECTING...')
+        }
+
 
         if (symbol) {
             window.location.replace(`metatrader5://trade/${symbol}`);
